@@ -17,4 +17,8 @@ public interface ContactDao {
 	List<Contact> selectContacts();
 
 	List<Contact> search(String str);
+
+	int deleteAllContacts();
+
+	int insertContacts(List<Contact> contacts);
 }

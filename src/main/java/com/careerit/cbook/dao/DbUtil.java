@@ -35,4 +35,17 @@ public final class DbUtil {
 			System.out.println("While closing resources :" + e);
 		}
 	}
+
+
+	public static void close(Statement st, Connection con) {
+		try {
+			if (st != null)
+				st.close();
+			if (con != null)
+				con.close();
+		} catch (Exception e) {
+			System.out.println("While closing resources :" + e);
+		}
+		
+	}
 }
