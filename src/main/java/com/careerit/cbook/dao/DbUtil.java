@@ -12,7 +12,13 @@ public final class DbUtil {
 
 	}
 	
-
+	static{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch (Exception e) {
+			System.out.println("While loading driver :"+e);
+		}
+	}
 	public static Connection getConnection() {
 		Connection con = null;
 		try {

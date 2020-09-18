@@ -8,6 +8,7 @@
 	<groupId>com.careerit</groupId>
 	<artifactId>cbook</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 	<name>cbook</name>
 
@@ -54,6 +55,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.21</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 

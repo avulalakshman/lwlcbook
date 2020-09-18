@@ -6,12 +6,31 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.careerit.cbook.dao.ContactDao;
+import com.careerit.cbook.dao.ContactDaoImpl;
 import com.careerit.cbook.domain.Contact;
 
 public class ContactServiceImpl implements ContactService {
 
 	private static final Logger log = LoggerFactory.getLogger(ContactServiceImpl.class);
 	private ContactDao contactDao;
+
+	private static ContactService contactService;
+
+	private ContactServiceImpl() {
+		contactDao = ContactDaoImpl.getInstance();
+	}
+
+	public static ContactService getInstance() {
+
+		if (contactService == null) {
+			synchronized (ContactServiceImpl.class) {
+				if (contactService == null) {
+					contactService = new ContactServiceImpl();
+				}
+			}
+		}
+		return contactService;
+	}
 
 	@Override
 	public Contact addContact(Contact contact) {
@@ -46,8 +65,9 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	public List<Contact> getContacts() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Contact> contactList = contactDao.selectContacts();
+		log.info("Contact count is :{}", contactList.size());
+		return contactList;
 	}
 
 	@Override

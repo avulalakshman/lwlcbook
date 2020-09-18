@@ -27,8 +27,12 @@ public class ContactDaoTest {
 	@Test
 	void insertContact() {
 
-		Contact contact = Contact.builder().name("Manoj").dob(LocalDate.of(1984, 8, 6)).email("manoj.pvn@gmail.com")
-				.mobile("9090909090").build();
+		Contact contact = Contact.builder()
+				.name("Manoj")
+				.dob(LocalDate.of(1984, 8, 6))
+				.email("manoj.pvn@gmail.com")
+				.mobile("9090909090")
+				.build();
 		Contact savedContact = contactDao.insertContact(contact);
 		assertTrue(savedContact.getCid() > 0);
 
@@ -43,12 +47,23 @@ public class ContactDaoTest {
 	}
 
 	private void insertContacts() {
-		Contact contact1 = Contact.builder().name("Manoj").dob(LocalDate.of(1984, 8, 16)).email("manoj.pvn@gmail.com")
-				.mobile("9090909091").build();
-		Contact contact2 = Contact.builder().name("Charan").dob(LocalDate.of(1983, 3, 12)).email("charan.k@gmail.com")
-				.mobile("9090909092").build();
-		Contact contact3 = Contact.builder().name("Krish").dob(LocalDate.of(1984, 12, 6)).email("krish.t@gmail.com")
-				.mobile("9090909093").build();
+		Contact contact1 = Contact.builder()
+				.name("Manoj")
+				.dob(LocalDate.of(1984, 8, 16))
+				.email("manoj.pvn@gmail.com")
+				.mobile("9090909091")
+				.build();
+		Contact contact2 = Contact.builder()
+				.name("Charan")
+				.dob(LocalDate.of(1983, 3, 12))
+				.email("charan.k@gmail.com")
+				.mobile("9090909092")
+				.build();
+		Contact contact3 = Contact.builder().name("Krish")
+				.dob(LocalDate.of(1984, 12, 6))
+				.email("krish.t@gmail.com")
+				.mobile("9090909093")
+				.build();
 		 contactDao.insertContact(contact1);
 		 contactDao.insertContact(contact2);
 		 contactDao.insertContact(contact3);
